@@ -1,0 +1,101 @@
+html, body, div, span,ul,li, a,h1, h2, h3, h4, h5, h6, i, b, input {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+  text-decoration: none;
+}
+html, body{
+  height:100%;
+  width:100%;
+}
+canvas{
+  border:1px solid #333;
+  margin-top:20px;
+  height:300px;
+  width:600px;
+}
+.fade-enter-active{
+  transition: all .3s ease .5s;
+}
+.fade-leave-active{
+  transition: all .5s cubic-bezier(1.0,0.5,0.8,1.0);
+}
+.fade-enter,.fade-leave-to{
+  transform: translateY(-100%);
+  opacity: 0;
+}
+input[type="button"]{
+  width:60px;
+  border-radius: 4px;
+  height:40px;
+  line-height: 40px;
+  margin:20px;
+  text-align: center;
+  cursor: pointer;
+}
+a{
+  color:#333;
+}
+a:hover{
+  color:#3cd088;
+}
+.active{
+  color:#3cd088;
+}
+.f-fl {
+  float: left;
+}
+
+.f-fr {
+  float: right;
+}
+
+.u-rds-50 {
+  border-radius: 50%;
+}
+
+.u-rds-100 {
+  border-radius: 100%;
+}
+.t-center{
+  text-align: center;
+}
+.f-s-14{
+  font-size:14px;
+}
+.f-s-16{
+  font-size:16px;
+}
+.f-s-20{
+  font-size:20px;
+}
+.f-s-24{
+  font-size:24px;
+}
+.f-s-28{
+  font-size:28px;
+}
+.title{
+  font-size:24px;
+  padding:20px;
+  text-align: center;
+  border-bottom:1px solid #3cd088;
+}
+.content-left{
+  padding:20px;
+  width:200px;
+  height:100%;
+  border-right:1px solid #3cd088;
+  overflow: hidden;
+}
+.content-left ul li{
+   padding-top:50px;
+}
+.content-right{
+  overflow: hidden;
+  position: absolute;
+  left:241px;
+  right:0px;
+  top:74px;
+  bottom:0px;
+}
