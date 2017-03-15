@@ -12,10 +12,10 @@ export default{
       type: "0",
       //用来存储碰撞的物体
       objects: [
-        {x: 50, y: 50, w: 20, h: 40, sx: 0.5, sy: 0},
-        {x: 200, y: 50, w: 30, h: 15, sx: -1.1, sy: 0},
-        {x: 150, y: 20, w: 20, h: 20, sx: -0.8, sy: -1.2},
-        {x: 80, y: 100, w: 10, h: 10, sx: 1, sy: 1}
+        {x: 50, y: 50, w: 20, h: 40, sx: 1, sy: 0},
+        {x: 200, y: 50, w: 30, h: 15, sx: -2.2, sy: 0},
+        {x: 150, y: 20, w: 20, h: 20, sx: -1.6, sy: -2.0},
+        {x: 80, y: 100, w: 10, h: 10, sx: 2, sy: 2}
       ],
       balls: [
         {x: 100, y: 120, r: 10, sx: 1, sy: 1},
@@ -67,12 +67,12 @@ export default{
       } else if (this.type == 2) {
         content = this.mix;
       }
+      this.collesion(content);
       content.forEach(function (item, index) {
         this.ctx.beginPath();
         //根据角度,判断位置,-180-180,此处的0坐标点在左上角,其实也可以自己制定
         var len = this.color.length;
         this.ctx.strokeStyle = this.color[index % len];
-        this.collesion(content);
         if (item.r) {
           this.ctx.arc(item.x, item.y, item.r, 0, 2 * Math.PI);
         } else {
@@ -137,10 +137,10 @@ export default{
       let isInrect1 = A.x >= x && A.x <= w && A.y >= B.y && A.y <= B.y + B.h;
       let isInrect2 = A.x >= B.x && A.x <= B.x + B.w && A.y >= y && A.y <= h;
       //计算4个点是否在园内
-      let b1 = Math.pow(B.x - A.x) + Math.pow(B.y - B.y) <= A.r * A.r;
-      let b2 = Math.pow(B.x + B.w - A.x) + Math.pow(B.y - B.y) <= A.r * A.r;
-      let b3 = Math.pow(B.x - A.x) + Math.pow(B.y + B.h - B.y) <= A.r * A.r;
-      let b4 = Math.pow(B.x + B.w - A.x) + Math.pow(B.y + B.h - B.y) <= A.r * A.r;
+      let b1 = Math.pow((B.x - A.x),2) + Math.pow((B.y - A.y),2) <= A.r * A.r;
+      let b2 = Math.pow((B.x + B.w - A.x),2) + Math.pow((B.y - A.y),2) <= A.r * A.r;
+      let b3 = Math.pow((B.x - A.x),2) + Math.pow((B.y + B.h - A.y),2) <= A.r * A.r;
+      let b4 = Math.pow((B.x + B.w - A.x),2) + Math.pow((B.y + B.h - A.y),2) <= A.r * A.r;
       if (isInrect1 || isInrect2 || b1 || b2 || b3 || b4) {
         [A.sy, B.sy] = [B.sy, A.sy];
         [A.sx, B.sx] = [B.sx, A.sx];

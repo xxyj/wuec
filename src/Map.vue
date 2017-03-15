@@ -10,13 +10,13 @@
           <router-link to="/demo1" active-class="active">盒模型碰撞</router-link>
         </li>
         <li>
-          <router-link to="/demo2" active-class="active">像素检测(地图格子划分)</router-link>
+          <router-link to="/demo2" active-class="active">分离轴定理</router-link>
         </li>
         <li>
-          <router-link to="/demo3" active-class="active">光影透射法</router-link>
+          <router-link to="/demo3" active-class="active">光线透射法</router-link>
         </li>
         <li>
-          <router-link to="/demo4" active-class="active">分离轴定理</router-link>
+          <router-link to="/demo4" active-class="active">像素检测(地图格子划分)</router-link>
         </li>
       </ul>
     </div>

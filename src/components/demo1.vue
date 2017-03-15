@@ -15,7 +15,7 @@
     </div>
   </div>
 </template>
-<script>
+<script type="text/javascript">
   import demo1 from 'js/demo1'
   export default{
     ...demo1
