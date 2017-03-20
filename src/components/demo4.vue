@@ -1,16 +1,12 @@
 <template>
-  <div id="demo2" style="padding:30px;">
-    <div>关键方法:<a target="_blank" href="http://www.w3school.com.cn/tags/canvas_getimagedata.asp">getImageData</a></div>
-    <div>最小像素群点:
-      <a href="javascript:void(0)" @click="change(1)" :class="{active:type==0}">1</a>,
-      <a href="javascript:void(0)" @click="change(10)" :class="{active:type==1}">10</a>,
-      <a href="javascript:void(0)" @click="change(40)" :class="{active:type==2}">40</a>
-    </div>
-    <canvas ref="canvas4"></canvas>
+  <div id="demo4" style="padding:30px;">
+    <p>打雷了,下雨了,回家收衣服了!!!</p>
+    <p>关键函数:<a href="http://www.w3school.com.cn/tags/canvas_ispointinpath.asp" target="_blank">isPointInPath</p>
+    <canvas ref="canvas4" style="background: #000;width:400px;height:500px;"></canvas>
 </template>
 <script>
-  import demo2 from 'js/demo2'
+  import demo4 from 'js/demo4'
   export default{
-    ...demo2
+    ...demo4
   }
 </script>

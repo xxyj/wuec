@@ -8,6 +8,11 @@
       向量的点积运算:A*B = x1y1+x2y2 = |A||B|cos0
     </div>
     <canvas ref="canvas2"></canvas>
+    <div>
+      <input type="button" value="效果图" @click="actResult" />
+      <input type="button" value="演示图" @click="actShow(0)"/>
+      <input type="button" value="演示图2" @click="actShow(1)"/>
+    </div>
   </div>
 </template>
 <script type="text/javascript">
