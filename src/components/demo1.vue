@@ -7,7 +7,7 @@
         <a href="javascript:void(0)" @click="change(2)" v-bind:class="{active:type==2}">矩形与圆形碰撞</a>
       </div>
     </div>
-    <div style="margin-top:15px;" v-html="list[type]"></div>
+    <div style="margin-top:15px;color:red" v-html="list[type]"></div>
     <canvas ref="canvas1"></canvas>
     <div>
       <input type="button" value="开始" @click="begin"/>

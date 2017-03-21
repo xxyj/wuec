@@ -133,7 +133,7 @@ export default{
         let tmp1 = A.points.map(function (item2, index) {
           return item.x * item2.x + item.y * item2.y
         })
-        maxA = Math.max.apply(null, tmp1);
+        maxA = Math.max.apply(null, tmp1);//Max.max(...tmp1)
         minA = Math.min.apply(null, tmp1);
         let tmp2 = B.points.map(function (item2, index) {
           return (item.x * item2.x) + (item.y * item2.y);

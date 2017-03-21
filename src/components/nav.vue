@@ -8,7 +8,6 @@
     <p>1.下载代码: git clone https://github.com/xxyj/wuec.git</p>
     <p>2.进入目录下安装依赖: npm install</p>
     <p>3.运行: npm run dev</p>
-
   </div>
 
 </template>
