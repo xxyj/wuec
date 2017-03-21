@@ -15,23 +15,35 @@ export default{
         {x: 50, y: 50, w: 20, h: 40, sx: 1, sy: 0},
         {x: 200, y: 50, w: 30, h: 15, sx: -2.2, sy: 0},
         {x: 150, y: 20, w: 20, h: 20, sx: -1.6, sy: -2.0},
-        {x: 80, y: 100, w: 10, h: 10, sx: 2, sy: 2}
+        {x: 80, y: 100, w: 10, h: 10, sx: 2, sy: 2},
+        {x: 280, y: 120, w: 40, h: 50, sx: 2, sy: -2}
       ],
       balls: [
         {x: 100, y: 120, r: 10, sx: 1, sy: 1},
         {x: 50, y: 60, r: 15, sx: 0.5, sy: 0},
         {x: 210, y: 90, r: 8, sx: -1.1, sy: 0},
-        {x: 160, y: 30, r: 5, sx: -0.8, sy: -1.2}
+        {x: 160, y: 30, r: 5, sx: -0.8, sy: -1.2},
+        {x: 280, y: 130, r: 20, sx: 1.1, sy: -1.2},
       ],
       mix: [
-        {x: 100, y: 120, r: 10, sx: 0.5, sy: 0.5},
-        {x: 50, y: 50, w: 20, h: 40, sx: 0.25, sy: 0},
-        {x: 210, y: 90, r: 8, sx: -0.6, sy: 0},
-        {x: 160, y: 30, r: 5, sx: -0.6, sy: -0.6},
-        {x: 250, y: 20, w: 20, h: 20, sx: -0.4, sy: 0.6},
+        {x: 100, y: 120, r: 10, sx: 1, sy: 1},
+        {x: 50, y: 50, w: 20, h: 40, sx: 1, sy: 2},
+        {x: 210, y: 90, r: 8, sx: -1.6, sy: 0},
+        {x: 160, y: 30, r: 5, sx: -1.6, sy: -1.6},
+        {x: 250, y: 20, w: 20, h: 20, sx: -1.4, sy: 1.1},
+        {x: 300, y: 120, w: 50, h: 60, sx: -2, sy: -1},
       ],
-      color: ["#ff00ff", "#0000ff", "#3cd088", "#0bbdef", "#bbb333", "#sea318", "#014321"]
+      color: ["#ff00ff", "#0000ff", "#3cd088", "#0bbdef", "#bbb333", "#sea318", "#014321"],
+      status: 0,
+      stop: false,
     }
+  },
+  created: function () {
+    let img = new Image();
+    img.src = "/static/image/show.jpg";
+    img.onload = function () {
+      this.imgObj = img;
+    }.bind(this)
   },
   mounted: function () {
     this.canvas = this.$refs.canvas1;
@@ -49,14 +61,33 @@ export default{
     },
     begin: function () {
       //开始动画
+
+      this.stop = false;
       this.drawObjects(true)
+    },
+    show: function () {
+      if (!this.imgObj) {
+        return;
+      }
+      this.canvas.width = 1600;
+      this.canvas.height = 800;
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      this.ctx.drawImage(this.imgObj, 0, 0, this.imgObj.width, this.imgObj.height);
     },
     pause: function () {
       //暂停动画
       window.cancelAnimationFrame(this.animateBegin);
+      this.stop = true;
     },
     //画图
     drawObjects: function (flag) {
+      window.cancelAnimationFrame(this.animateBegin);
+      if (this.stop) {
+        return;
+      }
+
+      this.canvas.width = 400;
+      this.canvas.height = 200;
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
       //this.canvas.width = this.canvas.width;
       //this.ctx.moveTo(0, 0);
@@ -137,10 +168,10 @@ export default{
       let isInrect1 = A.x >= x && A.x <= w && A.y >= B.y && A.y <= B.y + B.h;
       let isInrect2 = A.x >= B.x && A.x <= B.x + B.w && A.y >= y && A.y <= h;
       //计算4个点是否在园内
-      let b1 = Math.pow((B.x - A.x),2) + Math.pow((B.y - A.y),2) <= A.r * A.r;
-      let b2 = Math.pow((B.x + B.w - A.x),2) + Math.pow((B.y - A.y),2) <= A.r * A.r;
-      let b3 = Math.pow((B.x - A.x),2) + Math.pow((B.y + B.h - A.y),2) <= A.r * A.r;
-      let b4 = Math.pow((B.x + B.w - A.x),2) + Math.pow((B.y + B.h - A.y),2) <= A.r * A.r;
+      let b1 = Math.pow((B.x - A.x), 2) + Math.pow((B.y - A.y), 2) <= A.r * A.r;
+      let b2 = Math.pow((B.x + B.w - A.x), 2) + Math.pow((B.y - A.y), 2) <= A.r * A.r;
+      let b3 = Math.pow((B.x - A.x), 2) + Math.pow((B.y + B.h - A.y), 2) <= A.r * A.r;
+      let b4 = Math.pow((B.x + B.w - A.x), 2) + Math.pow((B.y + B.h - A.y), 2) <= A.r * A.r;
       if (isInrect1 || isInrect2 || b1 || b2 || b3 || b4) {
         [A.sy, B.sy] = [B.sy, A.sy];
         [A.sx, B.sx] = [B.sx, A.sx];

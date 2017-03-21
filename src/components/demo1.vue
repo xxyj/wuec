@@ -12,6 +12,7 @@
     <div>
       <input type="button" value="开始" @click="begin"/>
       <input type="button" value="暂停" @click="pause"/>
+      <input type="button" value="示意图" v-if="type===2" @click="show"/>
     </div>
   </div>
 </template>

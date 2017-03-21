@@ -11,8 +11,8 @@ html, body{
 canvas{
   border:1px solid #333;
   margin-top:20px;
-  height:300px;
-  width:600px;
+  height:400px;
+  width:800px;
 }
 .fade-enter-active{
   transition: all .3s ease .5s;
