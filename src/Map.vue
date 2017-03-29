@@ -18,6 +18,9 @@
         <li>
           <router-link to="/demo4" active-class="active">其他</router-link>
         </li>
+        <li>
+          <router-link to="/base" active-class="active">基础</router-link>
+        </li>
       </ul>
     </div>
     <div class="content-right">

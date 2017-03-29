@@ -5,6 +5,7 @@ import demo1 from 'components/demo1'
 import demo2 from 'components/demo2'
 import demo3 from 'components/demo3'
 import demo4 from 'components/demo4'
+import base from 'components/base'
 
 Vue.use(Router)
 
@@ -29,6 +30,9 @@ export default new Router({
     },{
       path: '/demo4',
       component: demo4
+    },{
+      path: '/base',
+      component: base
     }
   ]
 })
