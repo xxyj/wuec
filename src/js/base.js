@@ -3,7 +3,10 @@
  */
 export default{
   data: function () {
-    return {}
+    return {
+      ch:100,
+      cw:100
+    }
   },
   created: function () {
 
@@ -15,7 +18,7 @@ export default{
   },
   methods: {
     draw: function () {
-      
+
     }
   }
 }

@@ -6,6 +6,7 @@ import demo2 from 'components/demo2'
 import demo3 from 'components/demo3'
 import demo4 from 'components/demo4'
 import base from 'components/base'
+import feture from 'components/feture'
 
 Vue.use(Router)
 
@@ -31,8 +32,8 @@ export default new Router({
       path: '/demo4',
       component: demo4
     },{
-      path: '/base',
-      component: base
+      path: '/feture',
+      component: feture
     }
   ]
 })

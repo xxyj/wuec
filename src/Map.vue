@@ -21,6 +21,9 @@
         <li>
           <router-link to="/base" active-class="active">基础</router-link>
         </li>
+        <li>
+          <router-link to="/feture" active-class="active">技术选型参考</router-link>
+        </li>
       </ul>
     </div>
     <div class="content-right">
